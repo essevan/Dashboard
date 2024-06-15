@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.radial-gradient {
+  background: radial-gradient(circle, rgba(9, 71, 152, 1) 0%, rgba(3, 21, 54, 1) 100%);
+}
+
+
+.custom-header {
+  @apply bg-[#0C2766] text-white hover:text-white self-center;
+}
+
+.custom-cell {
+  @apply bg-[#092053] text-white;
+}
+
+
+.custom-hover:hover {
+  @apply bg-[#df6c43];
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #092053; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+  border: 3px solid transparent; /* Create space around thumb */
+  background-clip: content-box; /* Clip thumb to leave space */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+#custom-ag-theme {
+  --ag-background-color: #0C2766;
+  /* --ag-odd-row-background-color: transparent; */
+  --ag-header-background-color: transparent;
+  --ag-header-foreground-color: white;
+  --ag-foreground-color: white;
+}
+
+.responsive-heatmap {
+  width: 100%;
+  height: 100%;
+}
+
+.responsive-heatmap > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .responsive-heatmap {
+      height: auto;
+  width: auto;
+
+  }
+
+  .responsive-heatmap > div {
+      flex-direction: row;
+      overflow-x: auto;
+  }
+}
