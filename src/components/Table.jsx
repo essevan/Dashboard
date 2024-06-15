@@ -92,7 +92,7 @@ const Table = () => {
 
   const fetchRowData = async () => {
     try {
-      const response = await axios.get('https://augaifraud.pythonanywhere.com/api/fileread');
+      const response = await axios.get('http://54.172.32.13:8000/api/fileread');
       console.log('Data:', response.data);
   
       if (response.data.payload && response.data.payload.json_data) {

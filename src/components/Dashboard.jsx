@@ -45,7 +45,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://augaifraud.pythonanywhere.com/api/piechart');
+        const response = await axios.get('http://54.172.32.13:8000/api/piechart');
         console.log('Data:', response.data.payload);
         setRec(response.data.payload)
       } catch (error) {

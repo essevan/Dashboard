@@ -91,7 +91,7 @@ const SyntheticTable = () => {
 
   const fetchRowData = async () => {
     try {
-      const response = await axios.get('https://augaifraud.pythonanywhere.com/api/fileread');
+      const response = await axios.get('http://54.172.32.13:8000/api/fileread');
       console.log('Data:', response.data);
   
       if (response.data.payload && response.data.payload.json_data) {
@@ -146,7 +146,7 @@ const SyntheticTable = () => {
   const getRes = async (rowData) => {
     try {
       const response = await axios.post(
-        'https://73f8-2400-adc5-103-d600-8444-ad5e-c9b-51df.ngrok-free.app/api/predict',
+        'http://54.172.32.13:8000/api/predict',
         JSON.stringify(rowData), // Serialize rowData to JSON string
         {
           headers: {
