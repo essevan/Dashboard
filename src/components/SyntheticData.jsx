@@ -91,7 +91,7 @@ const SyntheticTable = () => {
 
   const fetchRowData = async () => {
     try {
-      const response = await axios.get('http://54.172.32.13:8000/api/fileread');
+      const response = await axios.get('http://54.234.169.244:8000/api/fileread');
       console.log('Data:', response.data);
   
       if (response.data.payload && response.data.payload.json_data) {

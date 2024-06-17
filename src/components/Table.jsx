@@ -92,7 +92,7 @@ const Table = () => {
 
   const fetchRowData = async () => {
     try {
-      const response = await axios.get('http://54.172.32.13:8000/api/fileread');
+      const response = await axios.get('http://54.234.169.244:8000/api/fileread');
       console.log('Data:', response.data);
   
       if (response.data.payload && response.data.payload.json_data) {
@@ -148,7 +148,7 @@ const Table = () => {
     console.log("checking--",JSON.stringify(rowData))
     try {
       const response = await axios.post(
-        'http://54.172.32.13:8000/api/predict/',
+        'http://54.234.169.244:8000/api/predict/',
         JSON.stringify(rowData), // Serialize rowData to JSON string
         {
           headers: {
@@ -183,6 +183,7 @@ const Table = () => {
   const onRowClicked = (event) => {
     console.log('Row clicked:', event.data);
     setSelectedRow(event.data);
+    setRes(null)
     setIsModalOpen(true);
     const dt=convertNumbersToStrings(event.data)
     getRes(dt);
