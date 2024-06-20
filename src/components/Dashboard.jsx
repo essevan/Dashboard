@@ -45,7 +45,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://54.234.169.244:8000/api/piechart');
+        const response = await axios.get('http://107.20.12.196:8000/api/piechart');
         console.log('Data:', response.data.payload);
         setRec(response.data.payload)
       } catch (error) {

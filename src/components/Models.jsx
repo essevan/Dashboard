@@ -11,34 +11,25 @@ import {
 import { HeatMapGrid } from "react-grid-heatmap";
 
 
-
-
-const xLabels = new Array(3).fill(0).map((_, i) => `${i}`);
-const yLabels = ["Sun", "Mon", "Tue"];
-const data = new Array(yLabels.length)
-    .fill(0)
-    .map(() =>
-        new Array(xLabels.length)
-            .fill(0)
-            .map(() => Math.floor(Math.random() * 5 + 5))
-    );
-
-
 const Models = () => {
 
+
+    const xLabels = ["Fraud", "Not_Fraud"];
+    const yLabels = ["Fraud", "Not_Fraud"];
+
     const gdata = {
-        labels: [0.80, 0.85, 0.90, 0.95, 1.00],
+        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
         datasets: [
             {
                 label: 'Light Blue Line',
-                data: [1.00, 0.90, 0.85, 0.75, 0.50],
+                data: [0.0, 0.0, 1],
                 borderColor: 'lightblue',
                 borderWidth: 2,
                 fill: false,
             },
             {
                 label: 'Yellow Dashed Line',
-                data: [1.00, 0.95, 0.80, 0.65, 0.50],
+                data: [0.0, 0.9444444444444444, 1],
                 borderColor: 'yellow',
                 borderDash: [5, 5],
                 borderWidth: 2,
@@ -46,116 +37,300 @@ const Models = () => {
             }
         ]
     };
-
+    
     const goptions = {
         scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
-                    },
-                    gridLines: {
-                        color: 'rgba(255, 255, 255, 0.1)',
+            y: {
+                beginAtZero: true,
+                max: 1,
+                title: {
+                    display: true,
+                    text: 'True Positive Rate',
+                    color: '#777',
+                    font: {
+                        size: 14
                     }
+                },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.1)',
+                },
+                ticks: {
+                    color: '#777',
                 }
-            ],
-            xAxes: [
-                {
-                    gridLines: {
-                        color: 'rgba(255, 255, 255, 0.1)',
+            },
+            x: {
+                beginAtZero: true,
+                max: 1,
+                title: {
+                    display: true,
+                    text: 'False Positive Rate',
+                    color: '#777',
+                    font: {
+                        size: 14
                     }
+                },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.1)',
+                },
+                ticks: {
+                    color: '#777',
                 }
-            ],
-            legend: {
-                position: "left"
             }
         },
         plugins: {
+            legend: {
+                position: 'top',
+                labels: {
+                    color: '#fff',
+                }
+            },
             title: {
-                // text: "Forgiveness Amount Over Time"
-                display: false
+                display: true,
+                text: 'Receiver Operating Characteristic',
+                color: '#fff',
+                font: {
+                    size: 16
+                }
             }
         }
-
     };
+    
 
 
-    const borrowerStateData = {
-        labels: ["CA", "TX", "NY", "FL", "IL", "PA", "OH", "NC", "MI", "VA", "AZ", "WA", "MA", "TN"],
+
+
+    const lgr = {
+        labels: ["NAICS Code", "Borrower Name", "Borrower Address", "Servicing Lender Location ID", "Originating Lender Location ID", "Payroll Proceed", "Borrower Zip", "Project Zip", "Proceed Per Job", "Rent Proceed"],
         datasets: [
             {
-                label: "Number of Loans",
-                data: [150, 200, 250, 220, 300, 205, 305, 260, 230, 159, 240, 225, 320, 200],
+                label: "Feature Importance",
+                data: [0.28055764317647236,
+                    0.2193265368471227,
+                    0.15342404008717406,
+                    0.08830439434478882,
+                    0.08774122301057506,
+                    0.028687546690920985,
+                    0.027654483538206463,
+                    0.01600107684978114,
+                    0.011649558381428497,
+                    0.01157312853490388],
                 backgroundColor: "rgba(54, 162, 235, 0.6)",
             },
         ],
     };
 
+    const rf = {
+        labels: [
+            "Current Approval Amount",
+            "Payroll Proceed",
+            "Total Proceed",
+            "Initial Approval Amount",
+            "Forgiveness Amount",
+            "Borrower Zip",
+            "CD",
+            "Borrower State",
+            "Project Zip",
+            "Project State"
+        ],
+        datasets: [
+            {
+                label: "Feature Importance",
+                data: [
+                    0.1403207605921358,
+                    0.13183008663769424,
+                    0.12381005921513213,
+                    0.09004898368761426,
+                    0.06653261298120672,
+                    0.054803404305507494,
+                    0.05461771144625014,
+                    0.052030409457180224,
+                    0.04259550291239941,
+                    0.03536175209233446
+                ],
+                backgroundColor: "rgba(54, 162, 235, 0.6)",
+            },
+        ],
+    };
+
+    const dt = {
+        labels: [
+            "TOTAL_PROCEED",
+            "BorrowerState",
+            "ServicingLenderAddress",
+            "BorrowerZip",
+            "ProjectZip",
+            "ForgivenessAmount",
+            "ServicingLenderZip",
+            "DateApproved",
+            "LoanNumber",
+            "SBAOfficeCode"
+        ],
+        datasets: [
+            {
+                label: "Feature Importance",
+                data: [
+                    0.8417473590280756,
+                    0.0519498058124605,
+                    0.03247075936488994,
+                    0.03245827197430169,
+                    0.02838251109639326,
+                    0.01265527031657248,
+                    0.0003328821734012112,
+                    3.1402339052960796e-06,
+                    0.0,
+                    0.0
+                ],
+                backgroundColor: "rgba(54, 162, 235, 0.6)",
+            },
+        ],
+    };
+
+    const xgb = {
+        labels: [
+            "CurrentApprovalAmount",
+            "LoanNumber",
+            "BorrowerAddress",
+            "BorrowerZip",
+            "ServicingLenderLocationID",
+            "DateApproved",
+            "BorrowerState",
+            "JobsReported",
+            "ForgivenessDate",
+            "SBAOfficeCode"
+        ],
+        datasets: [
+            {
+                label: "Feature Importance",
+                data: [
+                    0.5723635536680426,
+                    0.05363135209837052,
+                    0.03875927211515493,
+                    0.03595260517760769,
+                    0.03503362831357265,
+                    0.030814027835181956,
+                    0.026590187976886153,
+                    0.020274342657920254,
+                    0.01986171092225288,
+                    0.019397189623581754
+                ],
+                backgroundColor: "rgba(54, 162, 235, 0.6)",
+            },
+        ],
+    };
+
+    const lgbm = {
+        labels: [
+            "ServicingLenderZip",
+            "NAICSCode",
+            "PROCEED_Per_Job",
+            "DateApproved / LoanStatusDate",
+            "LoanNumber",
+            "NotForgivenAmount",
+            "FranchiseName",
+            "RENT_PROCEED",
+            "ForgivenessAmount",
+            "ProjectCountyName"
+        ],
+        datasets: [
+            {
+                label: "Feature Importance",
+                data: [
+                    0.08559010364426613,
+                    0.08191240387830157,
+                    0.05015045135406219,
+                    0.04981611501170177,
+                    0.04680708793045804,
+                    0.041123370110330994,
+                    0.037111334002006016,
+                    0.0367769976596456,
+                    0.03343363423604146,
+                    0.027415580073553995
+                ],
+                backgroundColor: "rgba(54, 162, 235, 0.6)",
+            },
+        ],
+    };
+
+    const cardsInfo = [
+        {
+            name: 'Accuracy',
+            val1: '0.999',
+            val2: "0.999",
+            val3: "0.999",
+            val4: ' 0.999'
+        },
+        {
+            name: "Precision",
+            val1: '0.168',
+            val2: '1.0',
+            val3: '0.0',
+            val4: '1.0'
+        },
+        {
+            name: "Recall",
+            val1: '1.0',
+            val2: '0.944',
+            val3: '0.0',
+            val4: '0.833'
+        },
+        {
+            name: "F1 Score",
+            val1: '0.288',
+            val2: '0.971',
+            val3: '0.0',
+            val4: ' 0.909'
+        }
+    ]
+
+
+
     return (
         <div className="p-8 min-h-screen text-white ">
             <h1 className='text-white font-bold text-2xl mb-5 ml-2'>LightGBM</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val1}</h2>
+                    </div>
+                ))}
+            </div>
             <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                     <Line data={gdata} options={goptions} />
                 </div>
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                     <Line data={gdata} options={goptions} />
                 </div>
             </div>
 
-            <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Bar data={borrowerStateData}
+            <div className="flex flex-wrap justify-around mb-4">
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Bar data={lgbm}
                         options={{
                             plugins: {
                                 title: {
-                                    text: "Loans by State"
+                                    text: "Feature Importance"
                                 }
                             },
                             indexAxis: 'y',
                         }} />
                 </div>
 
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <div>
-                        <div className='flex flex-row justify-between mb-6'>
-                            <div className='w-[40%]'>
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
                             </div>
-                            <div className='w-[40%]'>
-
+                            <div className="w-[100%]">
                                 <HeatMapGrid
-                                    data={data}
+                                    data={[[193597, 89],
+                                    [0, 18]]}
                                     xLabels={xLabels}
                                     yLabels={yLabels}
-                                    // Reder cell with tooltip
                                     cellRender={(x, y, value) => (
                                         <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
                                     )}
@@ -169,80 +344,14 @@ const Models = () => {
                                         color: "#777"
                                     })}
                                     cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
                                         fontSize: ".7rem",
                                         color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
                                     })}
-                                    cellHeight="3.2rem"
+                                    cellHeight="10rem"
                                     xLabelsPos="bottom"
+                                    square
                                     onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
-                            </div>
-                        </div>
-
-
-                        <div className='flex flex-row justify-between'>
-                            <div className='w-[40%]'>
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
-                            </div>
-                            <div className='w-[40%]'>
-
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
                                 />
                             </div>
                         </div>
@@ -253,48 +362,30 @@ const Models = () => {
 
 
 
-            <h1 className='text-white font-bold text-2xl pt-16 ml-2 '>Random Forest</h1>
+            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Random Forest</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val2}</h2>
+                    </div>
+                ))}
+            </div>
             <div className="flex flex-wrap justify-around  mb-8">
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <div>
-                        <div className='flex flex-row justify-between mb-6'>
-                            <div className='w-[40%]'>
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
                             </div>
-                            <div className='w-[40%]'>
-
+                            <div className="w-[100%]">
                                 <HeatMapGrid
-                                    data={data}
+                                    data={[[193686, 0],
+                                    [1, 17]]}
                                     xLabels={xLabels}
                                     yLabels={yLabels}
-                                    // Reder cell with tooltip
                                     cellRender={(x, y, value) => (
                                         <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
                                     )}
@@ -308,92 +399,26 @@ const Models = () => {
                                         color: "#777"
                                     })}
                                     cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
                                         fontSize: ".7rem",
                                         color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
                                     })}
-                                    cellHeight="3.2rem"
+                                    cellHeight="10rem"
                                     xLabelsPos="bottom"
+                                    square
                                     onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
-                            </div>
-                        </div>
-
-
-                        <div className='flex flex-row justify-between'>
-                            <div className='w-[40%]'>
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
-                            </div>
-                            <div className='w-[40%]'>
-
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Bar data={borrowerStateData}
+                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Bar data={rf}
                         options={{
                             plugins: {
                                 title: {
-                                    text: "Loans by State"
+                                    text: "Feature Importance"
                                 }
                             },
                             indexAxis: 'y',
@@ -412,53 +437,35 @@ const Models = () => {
 
 
 
-            <h1 className='text-white font-bold text-2xl pt-16 ml-2'>XGBoost</h1>
+            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-6'>XGBoost</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val2}</h2>
+                    </div>
+                ))}
+            </div>
             <div className="flex flex-wrap justify-around  mb-8">
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <div>
-                        <div className='flex flex-row justify-between mb-6'>
-                            <div className='w-[40%]'>
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: index % 2 ? "transparent" : "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
+            <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
                             </div>
-                            <div className='w-[40%]'>
-
+                            <div className="w-[100%]">
                                 <HeatMapGrid
-                                    data={data}
+                                    data={[[193686, 0],
+                                    [1, 17]]}
                                     xLabels={xLabels}
                                     yLabels={yLabels}
-                                    // Reder cell with tooltip
                                     cellRender={(x, y, value) => (
                                         <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
                                     )}
                                     xLabelsStyle={index => ({
-                                        color: index % 2 ? "transparent" : "#777",
+                                        color: "#777",
                                         fontSize: ".65rem"
                                     })}
                                     yLabelsStyle={() => ({
@@ -467,92 +474,26 @@ const Models = () => {
                                         color: "#777"
                                     })}
                                     cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
                                         fontSize: ".7rem",
                                         color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
                                     })}
-                                    cellHeight="3.2rem"
+                                    cellHeight="10rem"
                                     xLabelsPos="bottom"
+                                    square
                                     onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
-                            </div>
-                        </div>
-
-
-                        <div className='flex flex-row justify-between'>
-                            <div className='w-[40%]'>
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: index % 2 ? "transparent" : "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
-                                />
-                            </div>
-                            <div className='w-[40%]'>
-
-                                <HeatMapGrid
-                                    data={data}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    // Reder cell with tooltip
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: index % 2 ? "transparent" : "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgb(185, 220, 255, ${ratio})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="3.2rem"
-                                    xLabelsPos="bottom"
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                // yLabelsPos="right"
-                                // square
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Bar data={borrowerStateData}
+                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Bar data={xgb}
                         options={{
                             plugins: {
                                 title: {
-                                    text: "Loans by State"
+                                    text: "Feature Importance"
                                 }
                             },
                             indexAxis: 'y',
@@ -571,6 +512,177 @@ const Models = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Logistic Regression</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val3}</h2>
+                    </div>
+                ))}
+            </div>
+            <div className="flex flex-wrap justify-around  mb-8">
+            <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
+                            </div>
+                            <div className="w-[100%]">
+                                <HeatMapGrid
+                                    data={[[193685, 1],
+                                    [18, 0]]}
+                                    xLabels={xLabels}
+                                    yLabels={yLabels}
+                                    cellRender={(x, y, value) => (
+                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
+                                    )}
+                                    xLabelsStyle={index => ({
+                                        color: "#777",
+                                        fontSize: ".65rem"
+                                    })}
+                                    yLabelsStyle={() => ({
+                                        fontSize: ".65rem",
+                                        textTransform: "uppercase",
+                                        color: "#777"
+                                    })}
+                                    cellStyle={(_x, _y, ratio) => ({
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
+                                        fontSize: ".7rem",
+                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
+                                    })}
+                                    cellHeight="10rem"
+                                    xLabelsPos="bottom"
+                                    square
+                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Bar data={lgr}
+                        options={{
+                            plugins: {
+                                title: {
+                                    text: "Feature Importance"
+                                }
+                            },
+                            indexAxis: 'y',
+                        }} />
+                </div>
+            </div>
+
+            <div className="flex flex-wrap justify-around mb-8">
+                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={gdata} options={goptions} />
+                </div>
+                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={gdata} options={goptions} />
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Decision Tree Classifier</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val4}</h2>
+                    </div>
+                ))}
+            </div>
+            <div className="flex flex-wrap justify-around  mb-8">
+            <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
+                            </div>
+                            <div className="w-[100%]">
+                                <HeatMapGrid
+                                    data={[[193686, 0],
+                                    [3, 15]]}
+                                    xLabels={xLabels}
+                                    yLabels={yLabels}
+                                    cellRender={(x, y, value) => (
+                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
+                                    )}
+                                    xLabelsStyle={index => ({
+                                        color: "#777",
+                                        fontSize: ".65rem"
+                                    })}
+                                    yLabelsStyle={() => ({
+                                        fontSize: ".65rem",
+                                        textTransform: "uppercase",
+                                        color: "#777"
+                                    })}
+                                    cellStyle={(_x, _y, ratio) => ({
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
+                                        fontSize: ".7rem",
+                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
+                                    })}
+                                    cellHeight="10rem"
+                                    xLabelsPos="bottom"
+                                    square
+                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Bar data={dt}
+                        options={{
+                            plugins: {
+                                title: {
+                                    text: "Feature Importance"
+                                }
+                            },
+                            indexAxis: 'y',
+                        }} />
+                </div>
+            </div>
+
+            <div className="flex flex-wrap justify-around mb-8">
+                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={gdata} options={goptions} />
+                </div>
+                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={gdata} options={goptions} />
+                </div>
+            </div>
 
         </div>
 
