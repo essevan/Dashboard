@@ -22,15 +22,15 @@ const Models = () => {
         datasets: [
             {
                 label: 'Light Blue Line',
-                data: [0.0, 0.0, 1],
+                data: [[0.0,0.95],[1,0.94]],
                 borderColor: 'lightblue',
                 borderWidth: 2,
                 fill: false,
             },
             {
                 label: 'Yellow Dashed Line',
-                data: [0.0, 0.9444444444444444, 1],
-                borderColor: 'yellow',
+                data: [[0.0, 0.0],[1, 0.94]],
+                borderColor: 'plum',
                 borderDash: [5, 5],
                 borderWidth: 2,
                 fill: false,
@@ -79,6 +79,7 @@ const Models = () => {
         },
         plugins: {
             legend: {
+                display:false,
                 position: 'top',
                 labels: {
                     color: '#fff',

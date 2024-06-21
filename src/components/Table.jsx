@@ -14,7 +14,8 @@ const Table = () => {
   const [selectedRow, setSelectedRow] = useState(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [res,setRes]=useState(null)
+  const [res,setRes]=useState(null);
+  const[jdt,setJdt]=useState(null)
 
   const heads = [
     { field: 'LoanNumber', name: 'Loan Number' },
@@ -145,7 +146,6 @@ const Table = () => {
 
 
   const getRes = async (rowData) => {
-    console.log("checking--",JSON.stringify(rowData))
     try {
       const response = await axios.post(
         'http://107.20.12.196:8000/api/predict/',
@@ -279,15 +279,12 @@ const Table = () => {
                 <h4 className='font-bold'>Randome Forest</h4>
                 <p className='font-semibold'>{res===null? "___":res.RandomForest_model}</p>
               </div>
-              {/* <div className='flex flex-col justify-center items-center text-sm'>
-                <h4 className='font-bold'>LLM</h4>
-                <p className='font-semibold'>{res===null? "___":res.}</p>
-              </div> */}
             </div>
 
             <div className='bg-white rounded-lg ml-auto cursor-pointer p-2 text-[#092053] flex w-fit gap-x-3'
               onClick={() => {
                 setIsChatOpen(true);
+                setJdt(JSON.stringify(convertNumbersToStrings(selectedRow)))
                 closeModal();
               }}>
               Chatbot
@@ -298,7 +295,7 @@ const Table = () => {
           </>
         )}
       </Modal>
-      <Chat isOpen={isChatOpen} onClose={closeChat} />
+      <Chat data={jdt} isOpen={isChatOpen} onClose={closeChat} />
     </div>
   );
 };

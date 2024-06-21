@@ -38,9 +38,6 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [rec, setRec] = useState(null)
 
-  // const path='https://ea00-2400-adc5-103-d600-7ccf-91a6-4f44-5ddf.ngrok-free.app/'
-
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -619,7 +616,7 @@ const Dashboard = () => {
           <div className="w-[70%]">
             <Chart
               chartType="GeoChart"
-              data={GData}
+              data={americaGeoData}
               height="340px"
               width="100%"
               options={GOptions}
