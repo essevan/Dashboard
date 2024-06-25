@@ -9,6 +9,9 @@ import NavBar from './components/NavBar';
 import SideBar from './components/SideBar';
 import Table from './components/Table';
 import Models from './components/Models';
+import ResponsibleAI from './components/ResponsibleAI';
+import Tracking from "./components/Tracking"
+
 
 const App = () => {
   const isAuthenticated = true;
@@ -23,6 +26,10 @@ const App = () => {
           <Route path="/dashboard" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Dashboard /></ProtectedRoute>} />
           <Route path="/LoanApplication" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Table /></ProtectedRoute>} />
           <Route path="/models" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Models /></ProtectedRoute>} />
+          <Route path="/ai" element={<ProtectedRoute isAuthenticated={isAuthenticated}><ResponsibleAI /></ProtectedRoute>} />
+          <Route path="/Experimental_Tracking" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Tracking /></ProtectedRoute>} />
+
+          
           
           <Route path="/" element={<Navigate to="/home" />} />
         </Routes>

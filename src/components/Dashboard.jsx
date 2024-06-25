@@ -348,13 +348,13 @@ const Dashboard = () => {
     ["New York City, NY", 400],
     ["Miami, FL", 500],
     ["Chicago, IL", 600],
-    ["Philadelphia, PA", 700]
+    ["Philadelphia, PA", 900]
   ];
-
+  
   const GOptions = {
     region: "US",
     resolution: "metros",
-    colorAxis: { colors:["#e0f3f8", "#023858"] },
+    colorAxis: { colors: ["#e0f3f8", "#023858"] },
     backgroundColor: "",
     datalessRegionColor: "#fff",
     defaultColor: "#f5f5f5",
@@ -402,32 +402,6 @@ const Dashboard = () => {
     ["Pennsylvania", 700],
   ];
 
-  const americaCityGeoData = [
-    ["City", "Popularity"],
-    ["Los Angeles", 200],
-    // ["Texas", 300],
-    // ["New York", 400],
-    // ["Florida", 500],
-    // ["Illinois", 600],
-    // ["Pennsylvania", 700],
-  ];
-
-  const americaCityGeoOptions = {
-    region: "US",
-    resolution: "cities",
-    colorAxis: { colors: ["#e0f3f8", "#023858"] },
-    backgroundColor: "",
-    datalessRegionColor: "#fff",
-    defaultColor: "#f5f5f5",
-    title: "Popularity by State",
-    titleTextStyle: {
-      color: "white",
-      fontSize: 20,
-      bold: true,
-    },
-    chartArea: { width: "90%", height: "80%" },
-    legend: { position: 'none' },
-  };
 
   // Define the options for the map chart
   const americaGeoOptions = {

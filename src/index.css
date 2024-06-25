@@ -27,7 +27,7 @@ code {
 }
 
 .custom-header {
-  @apply bg-[#0C2766] text-white hover:text-white self-center;
+  @apply bg-[#0C2766] text-white hover:text-white self-center text-center;
 }
 
 .custom-cell {
