@@ -641,7 +641,7 @@ const Dashboard = () => {
         </div>
       </div> */}
 
-      {/* <div className="flex flex-wrap justify-around mb-8">
+      <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full h-[500px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
           {rec &&
             <Line data={{
@@ -686,7 +686,7 @@ const Dashboard = () => {
               }} />
           }
         </div>
-      </div>*/}
+      </div>
 
       <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full flex flex-row h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] px-4 py-2">
@@ -922,16 +922,16 @@ const Dashboard = () => {
           }
         </div>
 
-        {/* <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+        <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
           <Doughnut data={doughnutData} className="max-h-[300px]"
             options={{
               plugins: {
                 title: {
-                  text: "Verifications"
+                  text: "State Verifications"
                 }
               }
             }} />
-        </div> */}
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-around mb-8">
