@@ -22,6 +22,9 @@ code {
   background: radial-gradient(circle, rgba(9, 71, 152, 1) 0%, rgba(3, 21, 54, 1) 100%);
 }
 
+.landing-gradient {
+  background: radial-gradient(circle at 70% 50%, #375FBC -5%, #0D1F4A 30%, #03102F 70%);
+}
 
 .custom-header {
   @apply bg-[#0C2766] text-white hover:text-white self-center;
@@ -41,7 +44,7 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: #092053; 
+  background: ""; 
 }
 
 ::-webkit-scrollbar-thumb {
@@ -127,3 +130,6 @@ code {
       opacity: 1;
   }
 }
+
+
+

@@ -19,6 +19,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import { MatrixController, MatrixElement } from "chartjs-chart-matrix";
 import { color } from "chart.js/helpers";
 import { Label } from "recharts";
+import Chat from './Chat';
 import axios from "axios";
 
 ChartJS.register(MatrixController, MatrixElement);
@@ -37,12 +38,14 @@ const Dashboard = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [rec, setRec] = useState(null)
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://107.20.12.196:8000/api/piechart');
+        const response = await axios.get('http://34.233.124.110:8000/api/piechart');
         console.log('Data:', response.data.payload);
         setRec(response.data.payload)
       } catch (error) {
@@ -50,6 +53,17 @@ const Dashboard = () => {
       }
     };
 
+    const CityState = async () => {
+      try {
+        const response = await axios.get('https://fc1f-2400-adc5-103-d600-a4b5-2066-226b-ab9d.ngrok-free.app/');
+        console.log('Data:', response);
+        setRec(response.data.payload)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    CityState()
     fetchData();
   }, []);
 
@@ -317,6 +331,16 @@ const Dashboard = () => {
 
   };
 
+  // const GData = [
+  //   ["City", "Popularity"],
+  //   ["Los Angeles, CA", 200],
+  //   ["Houston, TX", 300],
+  //   ["New York City, NY", 400],
+  //   ["Miami, FL", 500],
+  //   ["Chicago, IL", 600],
+  //   ["Philadelphia, PA", 700]
+  // ];
+
   const GData = [
     ["City", "Popularity"],
     ["Los Angeles, CA", 200],
@@ -330,7 +354,7 @@ const Dashboard = () => {
   const GOptions = {
     region: "US",
     resolution: "metros",
-    colorAxis: { colors: ["#e0f3f8", "#023858"] },
+    colorAxis: { colors:["#e0f3f8", "#023858"] },
     backgroundColor: "",
     datalessRegionColor: "#fff",
     defaultColor: "#f5f5f5",
@@ -378,6 +402,33 @@ const Dashboard = () => {
     ["Pennsylvania", 700],
   ];
 
+  const americaCityGeoData = [
+    ["City", "Popularity"],
+    ["Los Angeles", 200],
+    // ["Texas", 300],
+    // ["New York", 400],
+    // ["Florida", 500],
+    // ["Illinois", 600],
+    // ["Pennsylvania", 700],
+  ];
+
+  const americaCityGeoOptions = {
+    region: "US",
+    resolution: "cities",
+    colorAxis: { colors: ["#e0f3f8", "#023858"] },
+    backgroundColor: "",
+    datalessRegionColor: "#fff",
+    defaultColor: "#f5f5f5",
+    title: "Popularity by State",
+    titleTextStyle: {
+      color: "white",
+      fontSize: 20,
+      bold: true,
+    },
+    chartArea: { width: "90%", height: "80%" },
+    legend: { position: 'none' },
+  };
+
   // Define the options for the map chart
   const americaGeoOptions = {
     region: "US",
@@ -421,11 +472,21 @@ const Dashboard = () => {
     },
   };
 
-
+  const closeChat = () => {
+    setIsChatOpen(false);
+  };
 
 
   return (
     <div className="p-8 min-h-screen text-white">
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" className="bi bi-chat-text-fill fixed bottom-6 right-6" viewBox="0 0 16 16"
+        onClick={()=>setIsChatOpen(true)} >
+          <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z" />
+        </svg>
+      </button>
+      <Chat isOpen={isChatOpen} onClose={closeChat} />
+
 
       {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {['Cases Analysed', 'Fraud Detected', 'Defraud Amount', 'Cases Pending'].map((item, index) => (
@@ -450,8 +511,8 @@ const Dashboard = () => {
         </div>
 
       </div> */}
-      
-      
+
+
       <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full h-[400px] md:w-[100%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
           {rec &&
@@ -616,7 +677,7 @@ const Dashboard = () => {
           <div className="w-[70%]">
             <Chart
               chartType="GeoChart"
-              data={americaGeoData}
+              data={GData}
               height="340px"
               width="100%"
               options={GOptions}

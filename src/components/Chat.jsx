@@ -9,19 +9,21 @@ const Chat = ({ data, isOpen, onClose }) => {
     const messagesContainerRef = useRef(null);
 
 
-    useEffect(()=>{
-        setMessages([])
-        setChatHistory("")
-    },[])
+    // useEffect(()=>{
+    //     setMessages([])
+    //     setChatHistory("")
+    // },[])
 
     useEffect(() => {
-        setMessages([])
+
         const fetchData = async () => {
             if (data) {
+                setMessages([])
+                setChatHistory("")
                 try {
                     setLoading(true)
                     const response = await fetch(
-                        "http://107.20.12.196:8000/invoke/",
+                        "http://34.233.124.110:8000/invoke/",
                         {
                             method: 'POST',
                             headers: {
@@ -46,49 +48,6 @@ const Chat = ({ data, isOpen, onClose }) => {
 
 
 
-    // const handleSendMessage = async () => {
-    //     if (inputValue.trim() !== "") {
-    //         setLoading(true)
-    //         const userMessage = { text: inputValue, sender: "user" };
-    //         setChatHistory(prevChatHistory => `${prevChatHistory}user: ${inputValue}\n`);
-    //         setMessages([...messages, userMessage]);
-    //         setInputValue(""); // Clear input after sending
-    //         console.log(" 2222 ",chatHistory)
-
-
-    //         try {
-    //             const response = await fetch(
-    //                 "http://107.20.12.196:8000/invoke/",
-    //                 {
-    //                     method: 'POST',
-    //                     headers: {
-    //                         'Content-Type': 'application/json'
-    //                     },
-    //                     body: JSON.stringify({
-    //                         "text": chatHistory
-    //                     })
-    //                 }
-    //             );
-
-    //             if (!response.ok) {
-    //                 throw new Error(`HTTP error! status: ${response.status}`);
-    //             }
-
-    //             const data = await response.json();
-    //             console.log(data);
-
-    //             const botMessage = { text: data.message, sender: "bot" };
-    //             setMessages((prevMessages) => [...prevMessages, botMessage]);
-    //             setLoading(false)
-    //             setChatHistory(prevChatHistory => `${prevChatHistory}bot: ${data.message}\n`);
-    //             console.log(" 2222 ",chatHistory)
-    //         } catch (error) {
-    //             console.error("Error sending message to chatbot:", error);
-    //         }
-    //     }
-    // };
-
-
 
     const handleSendMessage = async () => {
         if (inputValue.trim() !== "") {
@@ -107,7 +66,7 @@ const Chat = ({ data, isOpen, onClose }) => {
         try {
             console.log("Checking", updatedChatHistory);
             const response = await fetch(
-                "http://107.20.12.196:8000/invoke/",
+                "http://34.233.124.110:8000/invoke/",
                 {
                     method: 'POST',
                     headers: {
@@ -149,7 +108,7 @@ const Chat = ({ data, isOpen, onClose }) => {
     }
 
     return (
-        <div className="fixed bottom-0 right-0 w-80 h-96 bg-white shadow-lg rounded-t-lg flex flex-col overflow-hidden">
+        <div className="fixed bottom-0 right-0 w-80 h-96 bg-white shadow-lg rounded-t-lg flex flex-col overflow-hidden z-10">
             <div className="text-black px-6 pt-2 pb-1 flex justify-between items-center">
                 <h3 className="text-[#092053] font-bold">Chat</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#092053" className="bi bi-x text-lg cursor-pointer" viewBox="0 0 16 16"
