@@ -27,19 +27,30 @@ const Models = () => {
         datasets: [
             {
                 label: 'Light Blue Line',
-                data: [[0.0,0.95],[1,0.94]],
+                data:[
+                    [0.4453, 0.9229],
+                    [0.4469, 0.9229],
+                    [0.4484, 0.9229],
+                    [0.4500, 0.9229],
+                    [0.4516, 0.9229],
+                    [0.4531, 0.9229],
+                    [0.4672, 0.9229],
+                    [0.4688, 0.9229],
+                    [0.4703, 0.9229],
+                    [0.4719, 0.9229]
+                   ],
                 borderColor: 'lightblue',
                 borderWidth: 2,
                 fill: false,
             },
-            {
-                label: 'Yellow Dashed Line',
-                data: [[0.0, 0.0],[1, 0.94]],
-                borderColor: 'plum',
-                borderDash: [5, 5],
-                borderWidth: 2,
-                fill: false,
-            }
+            // {
+            //     label: 'Yellow Dashed Line',
+            //     data: [[0.0, 0.0],[1, 0.94]],
+            //     borderColor: 'plum',
+            //     borderDash: [5, 5],
+            //     borderWidth: 2,
+            //     fill: false,
+            // }
         ]
     };
     

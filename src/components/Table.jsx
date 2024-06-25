@@ -262,7 +262,7 @@ const Table = () => {
         <h2 className='mt-2'>Selected Row's Results</h2>
         {selectedRow && (
           <>
-            <div className='flex flex-wrap mt-6 gap-6 my-10 justify-between'>
+            <div className='flex flex-wrap mt-6 gap-6 my-10 justify-arround'>
               <div className='flex flex-col justify-center items-center text-sm'>
                 <h4 className='font-bold'>XG Boost</h4>
                 <p className='font-semibold'>{res===null? "___":res.XGBoost_model}</p>
@@ -272,12 +272,18 @@ const Table = () => {
                 <p className='font-semibold'>{res===null? "___":res.LightGBM}</p>
               </div>
               <div className='flex flex-col justify-center items-center text-sm'>
-                <h4 className='font-bold'>Logistic Regression Model</h4>
-                <p className='font-semibold'>{res===null? "___":res.LogisticRegression_model}</p>
+                <h4 className='font-bold'>Random Forest</h4>
+                <p className='font-semibold'>{res===null? "___":res.RandomForest_model}</p>
               </div>
               <div className='flex flex-col justify-center items-center text-sm'>
-                <h4 className='font-bold'>Randome Forest</h4>
-                <p className='font-semibold'>{res===null? "___":res.RandomForest_model}</p>
+                <h4 className='font-bold'>Decision Tree</h4>
+                <p className='font-semibold'>{res===null? "___":(res.Decision_tree)
+                }</p>
+              </div>
+              <div className='flex flex-col justify-center items-center text-sm'>
+                <h4 className='font-bold'>LLM</h4>
+                <p className='font-semibold'>{res===null? "___":(res.LLM)
+                }</p>
               </div>
             </div>
 
@@ -295,6 +301,7 @@ const Table = () => {
           </>
         )}
       </Modal>
+
       <Chat data={jdt} isOpen={isChatOpen} onClose={closeChat} />
     </div>
   );

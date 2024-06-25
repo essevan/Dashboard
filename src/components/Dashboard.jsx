@@ -55,8 +55,8 @@ const Dashboard = () => {
 
     const CityState = async () => {
       try {
-        const response = await axios.get('https://fc1f-2400-adc5-103-d600-a4b5-2066-226b-ab9d.ngrok-free.app/');
-        console.log('Data:', response);
+        const response = await axios.get('http://34.233.124.110:8000/api/multigraphs');
+        console.log('Data 22:', response);
         setRec(response.data.payload)
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -350,7 +350,7 @@ const Dashboard = () => {
     ["Chicago, IL", 600],
     ["Philadelphia, PA", 900]
   ];
-  
+
   const GOptions = {
     region: "US",
     resolution: "metros",
@@ -369,37 +369,88 @@ const Dashboard = () => {
   };
 
   const doughnutData = {
-    labels: ["Dataset 1", "Dataset 2", "Dataset 3"],
+    labels: ["LoanStatus", "RuralUrbanIndicator", "Label"],
     datasets: [
       {
-        label: "Dataset 1",
-        data: [130, 80, 40],
-        backgroundColor: ["#4C9FFB", "#90CAF9", "#C0E7FF"],
-        hoverBackgroundColor: ["#3A8DFF", "#75A9F9", "#A8D4FF"],
+        label: "LoanStatus",
+        data: [835009, 133516, 7],
+        backgroundColor: ["#004291", "#06917D", "#75A9F9"],
+        // hoverBackgroundColor: ["#3A8DFF", "#75A9F9", "#A8D4FF"],
       },
       {
-        label: "Dataset 2",
-        data: [100, 90, 70],
-        backgroundColor: ["#FF6384", "#FF9AA2", "#FFB6C1"],
-        hoverBackgroundColor: ["#FF5370", "#FF8299", "#FFA2B0"],
+        label: "RuralUrbanIndicator",
+        data: [823900, 144632],
+        backgroundColor: ["#8C1C13", "#A14B28", "#3E5C76"],
+        // hoverBackgroundColor: ["#FF5370", "#FF8299", "#FFA2B0"],
       },
       {
-        label: "Dataset 3",
-        data: [60, 50, 40],
-        backgroundColor: ["#36A2EB", "#A2D7FF", "#C0E7FF"],
-        hoverBackgroundColor: ["#2A8BD6", "#92C7FF", "#B0D7FF"],
+        label: "Label",
+        data: [968437, 95],
+        backgroundColor: ["#D1923C", "#257458", "#61497A"],
+        // hoverBackgroundColor: ["#2A8BD6", "#92C7FF", "#B0D7FF"],
       },
     ],
   };
 
   const americaGeoData = [
-    ["State", "Popularity"],
-    ["California", 200],
-    ["Texas", 300],
-    ["New York", 400],
-    ["Florida", 500],
-    ["Illinois", 600],
-    ["Pennsylvania", 700],
+    ["State", "Loan Applications"],
+    ["California", 130616],
+    ["Texas", 76183],
+    ["New York", 74110],
+    ["Florida", 60035],
+    ["Illinois", 40813],
+    ["Pennsylvania", 38535],
+    ["Ohio", 32646],
+    ["New Jersey", 32535],
+    ["Michigan", 29802],
+    ["Massachusetts", 27473],
+    ["Georgia", 25832],
+    ["Washington", 23754],
+    ["Virginia", 23267],
+    ["North Carolina", 22826],
+    ["Colorado", 19742],
+    ["Minnesota", 19729],
+    ["Maryland", 18977],
+    ["Wisconsin", 17353],
+    ["Indiana", 16601],
+    ["Missouri", 16350],
+    ["Tennessee", 15869],
+    ["Arizona", 15794],
+    ["Louisiana", 13668],
+    ["Oregon", 13456],
+    ["Connecticut", 12892],
+    ["Alabama", 10912],
+    ["South Carolina", 10742],
+    ["Oklahoma", 9997],
+    ["Utah", 9294],
+    ["Kentucky", 9179],
+    ["Iowa", 8295],
+    ["Nevada", 8262],
+    ["Kansas", 8202],
+    ["Arkansas", 5857],
+    ["Nebraska", 5804],
+    ["Mississippi", 5502],
+    ["New Hampshire", 5078],
+    ["Hawaii", 4980],
+    ["New Mexico", 4485],
+    ["Idaho", 4416],
+    ["District of Columbia", 4399],
+    ["Maine", 4185],
+    ["Rhode Island", 3792],
+    ["West Virginia", 3365],
+    ["North Dakota", 3222],
+    ["Montana", 3144],
+    ["Delaware", 2996],
+    ["Puerto Rico", 2952],
+    ["South Dakota", 2695],
+    ["Alaska", 2663],
+    ["Vermont", 2269],
+    ["Wyoming", 2139],
+    ["Guam", 443],
+    ["Virgin Islands", 290],
+    ["Northern Mariana Islands", 82],
+    ["American Samoa", 20],
+    ["Unknown", 13]
   ];
 
 
@@ -450,12 +501,23 @@ const Dashboard = () => {
     setIsChatOpen(false);
   };
 
+  const lgbm = {
+    labels:["CA", "TX", "NY", "FL", "IL", "PA", "OH", "NJ", "MI", "MA", "GA", "WA"],
+    datasets: [
+        {
+            label: "Feature Importance",
+            data: [130616, 76183, 74110, 60035, 40813, 38535, 32646, 32535, 29802, 27473, 25832, 23754],
+            backgroundColor: "rgba(54, 162, 235, 0.6)",
+        },
+    ],
+};
+
 
   return (
     <div className="p-8 min-h-screen text-white">
       <button>
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" className="bi bi-chat-text-fill fixed bottom-6 right-6" viewBox="0 0 16 16"
-        onClick={()=>setIsChatOpen(true)} >
+          onClick={() => setIsChatOpen(true)} >
           <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z" />
         </svg>
       </button>
@@ -496,12 +558,6 @@ const Dashboard = () => {
                 datasets: [
                   {
                     data: rec.pie_records.pie_values,
-                    backgroundColor: [
-                      "#A3C7FF", "#83B3FA", "#2E7EF8",
-                      "#1D69F1", "#1453E4", "#0B3FD7",
-                      "#0628C7", "#041AB6", "#030DA5",
-                      "#020493", "#010182"
-                    ]
                   }
                 ]
               }}
@@ -585,7 +641,7 @@ const Dashboard = () => {
         </div>
       </div> */}
 
-      <div className="flex flex-wrap justify-around mb-8">
+      {/* <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full h-[500px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
           {rec &&
             <Line data={{
@@ -630,11 +686,11 @@ const Dashboard = () => {
               }} />
           }
         </div>
-      </div>
+      </div>*/}
 
       <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full flex flex-row h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] px-4 py-2">
-          <div className="w-[30%] font-bold">State of Applicants</div>
+          <div className="w-[30%] font-bold text-lg">State of Applicants</div>
           <div className="w-[70%]">
             <Chart
               chartType="GeoChart"
@@ -646,7 +702,20 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="w-full flex flex-row h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] px-4 py-2">
+
+        <div className="w-full h-[350px] md:w-[49%] mb-12 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+          <Bar data={lgbm}
+            options={{
+              plugins: {
+                title: {
+                  text: "Borrowers State"
+                }
+              },
+              indexAxis: 'y',
+            }} />
+        </div>
+
+        {/* <div className="w-full flex flex-row h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] px-4 py-2">
           <div className="w-[30%]  font-bold">Cities of Applicants</div>
           <div className="w-[70%]">
             <Chart
@@ -657,8 +726,8 @@ const Dashboard = () => {
               options={GOptions}
             />
           </div>
-        </div>
-      </div>
+        </div> */}
+      </div> 
 
       {/* <div className="flex flex-wrap justify-around mb-8">
         <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
@@ -687,16 +756,7 @@ const Dashboard = () => {
         <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
           <Line data={gdata} options={goptions} />
         </div>
-        <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-          <Doughnut data={doughnutData} className="max-h-[300px]"
-            options={{
-              plugins: {
-                title: {
-                  text: "Verifications"
-                }
-              }
-            }} />
-        </div>
+
       </div> */}
 
       {/* <div className="flex flex-wrap justify-around mb-8">
@@ -861,6 +921,21 @@ const Dashboard = () => {
             }} />
           }
         </div>
+
+        {/* <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+          <Doughnut data={doughnutData} className="max-h-[300px]"
+            options={{
+              plugins: {
+                title: {
+                  text: "Verifications"
+                }
+              }
+            }} />
+        </div> */}
+      </div>
+
+      <div className="flex flex-wrap justify-around mb-8">
+        
       </div>
 
 
