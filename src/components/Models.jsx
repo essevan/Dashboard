@@ -15,7 +15,7 @@ import Chat from './Chat';
 
 const Models = () => {
 
-  const [isChatOpen, setIsChatOpen] = useState(false);
+    const [isChatOpen, setIsChatOpen] = useState(false);
 
 
 
@@ -26,34 +26,23 @@ const Models = () => {
         labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
         datasets: [
             {
-                label: 'Light Blue Line',
-                data:[
-                    [0.4453, 0.9229],
-                    [0.4469, 0.9229],
-                    [0.4484, 0.9229],
-                    [0.4500, 0.9229],
-                    [0.4516, 0.9229],
-                    [0.4531, 0.9229],
-                    [0.4672, 0.9229],
-                    [0.4688, 0.9229],
-                    [0.4703, 0.9229],
-                    [0.4719, 0.9229]
-                   ],
+                label: 'fpr',
+                data: [[0, 0], [1, 1]],
                 borderColor: 'lightblue',
                 borderWidth: 2,
                 fill: false,
             },
-            // {
-            //     label: 'Yellow Dashed Line',
-            //     data: [[0.0, 0.0],[1, 0.94]],
-            //     borderColor: 'plum',
-            //     borderDash: [5, 5],
-            //     borderWidth: 2,
-            //     fill: false,
-            // }
+            {
+                label: 'tpr',
+                data: [[0.0, 0.0], [1, 0.94]],
+                borderColor: 'plum',
+                borderDash: [5, 5],
+                borderWidth: 2,
+                fill: false,
+            }
         ]
     };
-    
+
     const goptions = {
         scales: {
             y: {
@@ -95,7 +84,7 @@ const Models = () => {
         },
         plugins: {
             legend: {
-                display:false,
+                display: false,
                 position: 'top',
                 labels: {
                     color: '#fff',
@@ -111,7 +100,7 @@ const Models = () => {
             }
         }
     };
-    
+
 
 
 
@@ -301,17 +290,17 @@ const Models = () => {
 
     const closeChat = () => {
         setIsChatOpen(false);
-      };
+    };
 
     return (
         <div className="p-8 min-h-screen text-white ">
             <button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" className="bi bi-chat-text-fill fixed bottom-6 right-6" viewBox="0 0 16 16"
-        onClick={()=>setIsChatOpen(true)} >
-          <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z" />
-        </svg>
-      </button>
-      <Chat isOpen={isChatOpen} onClose={closeChat} />
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" className="bi bi-chat-text-fill fixed bottom-6 right-6" viewBox="0 0 16 16"
+                    onClick={() => setIsChatOpen(true)} >
+                    <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z" />
+                </svg>
+            </button>
+            <Chat isOpen={isChatOpen} onClose={closeChat} />
             <h1 className='text-white font-bold text-2xl mb-5 ml-2'>LightGBM</h1>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {cardsInfo.map((item, index) => (
@@ -321,14 +310,7 @@ const Models = () => {
                     </div>
                 ))}
             </div>
-            <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
-                </div>
-                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
-                </div>
-            </div>
+
 
             <div className="flex flex-wrap justify-around mb-4">
                 <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
@@ -384,6 +366,22 @@ const Models = () => {
                     </div>
                 </div>
 
+            </div>
+            <div className="flex flex-wrap justify-around mb-8">
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0.04, 0.6],[0.28,0.9],[1,0.9]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            }
+                        ]
+                    }} options={goptions} />
+                </div>
             </div>
 
 
@@ -453,11 +451,19 @@ const Models = () => {
             </div>
 
             <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
-                </div>
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0, 0.45],[1,1]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            }
+                        ]
+                    }} options={goptions} />
                 </div>
             </div>
 
@@ -473,7 +479,7 @@ const Models = () => {
                 ))}
             </div>
             <div className="flex flex-wrap justify-around  mb-8">
-            <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                     <div className=" text-center  items-center">
                         <h7 className="pr-5">Actual Values</h7>
                         <div className="flex items-center">
@@ -528,11 +534,19 @@ const Models = () => {
             </div>
 
             <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
-                </div>
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0, 0.72],[0.03,0.83],[0.32,0.91],[0.51,0.94],[1,1]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            }
+                        ]
+                    }} options={goptions} />
                 </div>
             </div>
 
@@ -558,7 +572,7 @@ const Models = () => {
                 ))}
             </div>
             <div className="flex flex-wrap justify-around  mb-8">
-            <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                     <div className=" text-center  items-center">
                         <h7 className="pr-5">Actual Values</h7>
                         <div className="flex items-center">
@@ -613,11 +627,19 @@ const Models = () => {
             </div>
 
             <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
-                </div>
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 1], [0, 0],[1,0]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            },
+                        ]
+                    }} options={goptions} />
                 </div>
             </div>
 
@@ -647,7 +669,7 @@ const Models = () => {
                 ))}
             </div>
             <div className="flex flex-wrap justify-around  mb-8">
-            <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                     <div className=" text-center  items-center">
                         <h7 className="pr-5">Actual Values</h7>
                         <div className="flex items-center">
@@ -702,11 +724,19 @@ const Models = () => {
             </div>
 
             <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
-                </div>
-                <div className="w-full h-[350px] md:w-[49%] mb-8 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={gdata} options={goptions} />
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0, 0.28],[1,1]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            },
+                        ]
+                    }} options={goptions} />
                 </div>
             </div>
 
