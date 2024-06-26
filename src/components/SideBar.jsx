@@ -72,7 +72,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
         <>
         <div className='flex'>
         <img src={logo} alt="" className="w-5 object-contain" />
-          <h1 className='text-white text-xl font-bold mb-2 ml-4 mt-3 justify-between self-center'>Fraud Gaurd</h1>
+          <h1 className='text-white text-xl font-bold mb-2 ml-4 mt-3 justify-between self-center'>Fraud Guard</h1>
           </div>
           <img src={br} alt="" className="w-[95%] object-contain mb-8 mt-3 self-center" />
         </> : ""}
