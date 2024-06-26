@@ -174,7 +174,7 @@ const LandingPage = () => {
 
                     <div className='flex items-center gap-3 px-3 py-3 ml-10 mb-16'>
                         <img src={logo} alt="" className='w-8 h-8 object-contain' />
-                        <p>Fraud Gaurd</p>
+                        <p>Fraud Guard</p>
                     </div>
 
                     <div className='w-[97%] mb-10 flex justify-between'>
