@@ -32,7 +32,7 @@ const LandingPage = () => {
 
 
                 <div className='w-[100%] h-[90vh] flex items-center px-20'>
-                <img src={robo} alt="" className="absolute   right-32 w-[500px] h-[500px] p-0 m-0 -z-10" />
+                    <img src={robo} alt="" className="absolute   right-32 w-[500px] h-[500px] p-0 m-0 -z-10" />
 
                     <div className='max-w-prose px-4 py-4 text-white '>
                         <h1 className='font-bold text-4xl whitespace-pre-line mb-4'>Experience the Future
@@ -154,11 +154,11 @@ const LandingPage = () => {
 
 
                         <div className='max-w-prose w-[25%]'>
-                            <h1 className=' whitespace-pre-line text-lg font-bold mb-4'>Real-Time Detection:</h1>
-                            <p className=' whitespace-pre-line text-sm'>Instantly identify and respond
-                                to fraudulent applications,
-                                minimizing risk and
-                                potential loss.</p>
+                            <h1 className=' whitespace-pre-line text-lg font-bold mb-4'>Actionable Insights:</h1>
+                            <p className=' whitespace-pre-line text-sm'>Receive detailed reports and
+                                analytics to aid in decision-
+                                making and strategy
+                                formulation.</p>
                         </div>
 
                     </div>
