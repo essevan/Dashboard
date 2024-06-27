@@ -93,7 +93,7 @@ const Table = () => {
 
   const fetchRowData = async () => {
     try {
-      const response = await axios.get('http://54.87.122.150:8000/api/fileread');
+      const response = await axios.get('http://52.73.105.111:8000/api/fileread');
       console.log('Data:', response.data);
   
       if (response.data.payload && response.data.payload.json_data) {
@@ -148,7 +148,7 @@ const Table = () => {
   const getRes = async (rowData) => {
     try {
       const response = await axios.post(
-        'http://54.87.122.150:8000/api/predict/',
+        'http://52.73.105.111:8000/api/predict/',
         JSON.stringify(rowData), // Serialize rowData to JSON string
         {
           headers: {
