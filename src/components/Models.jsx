@@ -263,28 +263,36 @@ const Models = () => {
             val1: '0.999',
             val2: "0.999",
             val3: "0.999",
-            val4: ' 0.999'
+            val4: ' 0.999',
+            gnnv: '0.975',
+            llm:'0.9'
         },
         {
             name: "Precision",
             val1: '0.168',
             val2: '1.0',
             val3: '0.0',
-            val4: '1.0'
+            val4: '1.0',
+            gnnv: '0.952',
+            llm:'0.212'
         },
         {
             name: "Recall",
             val1: '1.0',
             val2: '0.944',
             val3: '0.0',
-            val4: '0.833'
+            val4: '0.833',
+            gnnv: '1',
+            llm:'0.5'
         },
         {
             name: "F1 Score",
             val1: '0.288',
             val2: '0.971',
             val3: '0.0',
-            val4: ' 0.909'
+            val4: ' 0.909',
+            gnnv: '0.975',
+            llm:'0.298'
         }
     ]
 
@@ -301,6 +309,252 @@ const Models = () => {
                 </svg>
             </button>
             <Chat isOpen={isChatOpen} onClose={closeChat} />
+
+            <h1 className='text-white font-bold text-2xl ml-2 mb-6'>XGBoost</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val2}</h2>
+                    </div>
+                ))}
+            </div>
+            <div className="flex flex-wrap justify-around  mb-8">
+                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
+                            </div>
+                            <div className="w-[100%]">
+                                <HeatMapGrid
+                                    data={[[193686, 0],
+                                    [1, 17]]}
+                                    xLabels={xLabels}
+                                    yLabels={yLabels}
+                                    cellRender={(x, y, value) => (
+                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
+                                    )}
+                                    xLabelsStyle={index => ({
+                                        color: "#777",
+                                        fontSize: ".65rem"
+                                    })}
+                                    yLabelsStyle={() => ({
+                                        fontSize: ".65rem",
+                                        textTransform: "uppercase",
+                                        color: "#777"
+                                    })}
+                                    cellStyle={(_x, _y, ratio) => ({
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
+                                        fontSize: ".7rem",
+                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
+                                    })}
+                                    cellHeight="10rem"
+                                    xLabelsPos="bottom"
+                                    square
+                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Bar data={xgb}
+                        options={{
+                            plugins: {
+                                title: {
+                                    text: "Feature Importance"
+                                }
+                            },
+                            indexAxis: 'y',
+                        }} />
+                </div>
+            </div>
+
+            <div className="flex flex-wrap justify-around mb-24">
+                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0, 0.72], [0.03, 0.83], [0.32, 0.91], [0.51, 0.94], [1, 1]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
+                            }
+                        ]
+                    }} options={goptions} />
+                </div>
+            </div>
+
+
+            <h1 className='text-white font-bold text-2xl mb-5 ml-2'>GNN</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.gnnv}</h2>
+                    </div>
+                ))}
+            </div>
+
+            <div className="flex flex-wrap justify-around mb-24">
+                <div className="w-full h-[400px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0.12, 1], [1, 1]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
+                            }
+                        ]
+                    }} options={goptions} />
+                </div>
+
+                <div className="w-full h-[400px] md:w-[49%] mb-12  md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
+                            </div>
+                            <div className="w-[100%]">
+                                <HeatMapGrid
+                                    data={[[19, 1],
+                                    [0, 20]]}
+                                    xLabels={xLabels}
+                                    yLabels={yLabels}
+                                    cellRender={(x, y, value) => (
+                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
+                                    )}
+                                    xLabelsStyle={index => ({
+                                        color: "#777",
+                                        fontSize: ".65rem"
+                                    })}
+                                    yLabelsStyle={() => ({
+                                        fontSize: ".65rem",
+                                        textTransform: "uppercase",
+                                        color: "#777"
+                                    })}
+                                    cellStyle={(_x, _y, ratio) => ({
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
+                                        fontSize: ".7rem",
+                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
+                                    })}
+                                    cellHeight="10rem"
+                                    xLabelsPos="bottom"
+                                    square
+                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <h1 className='text-white font-bold text-2xl mb-5 ml-2'>LLM</h1>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {cardsInfo.map((item, index) => (
+                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
+                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.llm}</h2>
+                    </div>
+                ))}
+            </div>
+
+            <div className="flex flex-wrap justify-around mb-24">
+                <div className="w-full h-[400px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <Line data={{
+                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                        datasets: [
+                            {
+                                label: 'fpr',
+                                data: [[0, 0], [0.12, 1], [1, 1]],
+                                borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
+                            }
+                        ]
+                    }} options={goptions} />
+                </div>
+
+                <div className="w-full h-[400px] md:w-[49%] mb-12  md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                    <div className=" text-center  items-center">
+                        <h7 className="pr-5">Actual Values</h7>
+                        <div className="flex items-center">
+
+                            <div className="flex items-center justify-center h-full w-4">
+                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
+                            </div>
+                            <div className="w-[100%]">
+                                <HeatMapGrid
+                                    data={[[413, 37],
+                                    [10, 10]]}
+                                    xLabels={xLabels}
+                                    yLabels={yLabels}
+                                    cellRender={(x, y, value) => (
+                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
+                                    )}
+                                    xLabelsStyle={index => ({
+                                        color: "#777",
+                                        fontSize: ".65rem"
+                                    })}
+                                    yLabelsStyle={() => ({
+                                        fontSize: ".65rem",
+                                        textTransform: "uppercase",
+                                        color: "#777"
+                                    })}
+                                    cellStyle={(_x, _y, ratio) => ({
+                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
+                                        fontSize: ".7rem",
+                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
+                                    })}
+                                    cellHeight="10rem"
+                                    xLabelsPos="bottom"
+                                    square
+                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <h1 className='text-white font-bold text-2xl mb-5 ml-2'>LightGBM</h1>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {cardsInfo.map((item, index) => (
@@ -310,7 +564,6 @@ const Models = () => {
                     </div>
                 ))}
             </div>
-
 
             <div className="flex flex-wrap justify-around mb-4">
                 <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
@@ -367,14 +620,14 @@ const Models = () => {
                 </div>
 
             </div>
-            <div className="flex flex-wrap justify-around mb-8">
+            <div className="flex flex-wrap justify-around mb-24">
                 <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                     <Line data={{
                         labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
                         datasets: [
                             {
                                 label: 'fpr',
-                                data: [[0, 0], [0.04, 0.6],[0.28,0.9],[1,0.9]],
+                                data: [[0, 0], [0.04, 0.6], [0.28, 0.9], [1, 0.9]],
                                 borderColor: 'lightblue',
                                 borderWidth: 2,
                                 fill: false,
@@ -391,7 +644,6 @@ const Models = () => {
                     }} options={goptions} />
                 </div>
             </div>
-
 
 
             <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Random Forest</h1>
@@ -465,7 +717,7 @@ const Models = () => {
                         datasets: [
                             {
                                 label: 'fpr',
-                                data: [[0, 0], [0, 0.45],[1,1]],
+                                data: [[0, 0], [0, 0.45], [1, 1]],
                                 borderColor: 'lightblue',
                                 borderWidth: 2,
                                 fill: false,
@@ -483,14 +735,12 @@ const Models = () => {
                 </div>
             </div>
 
-
-
-            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-6'>XGBoost</h1>
+            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Decision Tree Classifier</h1>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {cardsInfo.map((item, index) => (
                     <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
                         <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
-                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val2}</h2>
+                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val4}</h2>
                     </div>
                 ))}
             </div>
@@ -506,7 +756,7 @@ const Models = () => {
                             <div className="w-[100%]">
                                 <HeatMapGrid
                                     data={[[193686, 0],
-                                    [1, 17]]}
+                                    [3, 15]]}
                                     xLabels={xLabels}
                                     yLabels={yLabels}
                                     cellRender={(x, y, value) => (
@@ -537,7 +787,7 @@ const Models = () => {
                 </div>
 
                 <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Bar data={xgb}
+                    <Bar data={dt}
                         options={{
                             plugins: {
                                 title: {
@@ -556,7 +806,7 @@ const Models = () => {
                         datasets: [
                             {
                                 label: 'fpr',
-                                data: [[0, 0], [0, 0.72],[0.03,0.83],[0.32,0.91],[0.51,0.94],[1,1]],
+                                data: [[0, 0], [0, 0.28], [1, 1]],
                                 borderColor: 'lightblue',
                                 borderWidth: 2,
                                 fill: false,
@@ -646,7 +896,7 @@ const Models = () => {
                         datasets: [
                             {
                                 label: 'fpr',
-                                data: [[0, 1], [0, 0],[1,0]],
+                                data: [[0, 1], [0, 0], [1, 0]],
                                 borderColor: 'lightblue',
                                 borderWidth: 2,
                                 fill: false,
@@ -665,94 +915,7 @@ const Models = () => {
             </div>
 
 
-            <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Decision Tree Classifier</h1>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                {cardsInfo.map((item, index) => (
-                    <div key={index} className="text-left py-2 px-4 rounded-[13px] bg-[#061536] flex flex-row h-[70px] justify-between items-center">
-                        <h1 className="md:font-semibold text-wrap text-sm pr-2">{item.name}</h1>
-                        <h2 className="md:font-semibold text-sm md:text-lg">{item.val4}</h2>
-                    </div>
-                ))}
-            </div>
-            <div className="flex flex-wrap justify-around  mb-8">
-                <div className="w-full h-[400px] md:w-[49%] mb-12 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <div className=" text-center  items-center">
-                        <h7 className="pr-5">Actual Values</h7>
-                        <div className="flex items-center">
 
-                            <div className="flex items-center justify-center h-full w-4">
-                                <span className="transform -rotate-90 whitespace-nowrap font-light">Predicted Values</span>
-                            </div>
-                            <div className="w-[100%]">
-                                <HeatMapGrid
-                                    data={[[193686, 0],
-                                    [3, 15]]}
-                                    xLabels={xLabels}
-                                    yLabels={yLabels}
-                                    cellRender={(x, y, value) => (
-                                        <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
-                                    )}
-                                    xLabelsStyle={index => ({
-                                        color: "#777",
-                                        fontSize: ".65rem"
-                                    })}
-                                    yLabelsStyle={() => ({
-                                        fontSize: ".65rem",
-                                        textTransform: "uppercase",
-                                        color: "#777"
-                                    })}
-                                    cellStyle={(_x, _y, ratio) => ({
-                                        background: `rgba(185, 220, 255, ${Math.max(ratio, 0.2)})`,
-                                        fontSize: ".7rem",
-                                        color: `rgb(0, 0, 0, ${ratio / 2 + 0.4})`
-                                    })}
-                                    cellHeight="10rem"
-                                    xLabelsPos="bottom"
-                                    square
-                                    onClick={(x, y) => alert(`Clicked (${x}, ${y})`)}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="w-full h-[400px] md:w-[49%] mb-8 mt-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Bar data={dt}
-                        options={{
-                            plugins: {
-                                title: {
-                                    text: "Feature Importance"
-                                }
-                            },
-                            indexAxis: 'y',
-                        }} />
-                </div>
-            </div>
-
-            <div className="flex flex-wrap justify-around mb-8">
-                <div className="w-full h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                    <Line data={{
-                        labels: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
-                        datasets: [
-                            {
-                                label: 'fpr',
-                                data: [[0, 0], [0, 0.28],[1,1]],
-                                borderColor: 'lightblue',
-                                borderWidth: 2,
-                                fill: false,
-                            },
-                            {
-                                label: 'tpr',
-                                data: [[0, 0], [1, 1]],
-                                borderColor: 'plum',
-                                borderDash: [5, 5],
-                                borderWidth: 2,
-                                fill: false,
-                            }
-                        ]
-                    }} options={goptions} />
-                </div>
-            </div>
 
         </div>
 
