@@ -23,7 +23,7 @@ const Chat = ({ data, isOpen, onClose }) => {
                 try {
                     setLoading(true)
                     const response = await fetch(
-                        "http://54.82.90.195:8000/invoke/",
+                        "http://52.91.171.24:8000/invoke/",
                         {
                             method: 'POST',
                             headers: {
@@ -66,7 +66,7 @@ const Chat = ({ data, isOpen, onClose }) => {
         try {
             console.log("Checking", updatedChatHistory);
             const response = await fetch(
-                "http://54.82.90.195:8000/invoke/",
+                "http://52.91.171.24:8000/invoke/",
                 {
                     method: 'POST',
                     headers: {
