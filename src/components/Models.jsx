@@ -378,6 +378,14 @@ const Models = () => {
                                 borderColor: 'lightblue',
                                 borderWidth: 2,
                                 fill: false,
+                            },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
                             }
                         ]
                     }} options={goptions} />
@@ -459,6 +467,14 @@ const Models = () => {
                                 label: 'fpr',
                                 data: [[0, 0], [0, 0.45],[1,1]],
                                 borderColor: 'lightblue',
+                                borderWidth: 2,
+                                fill: false,
+                            },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
                                 borderWidth: 2,
                                 fill: false,
                             }
@@ -544,22 +560,19 @@ const Models = () => {
                                 borderColor: 'lightblue',
                                 borderWidth: 2,
                                 fill: false,
+                            },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
                             }
                         ]
                     }} options={goptions} />
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
             <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Logistic Regression</h1>
@@ -638,25 +651,18 @@ const Models = () => {
                                 borderWidth: 2,
                                 fill: false,
                             },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
+                            }
                         ]
                     }} options={goptions} />
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <h1 className='text-white font-bold text-2xl pt-16 ml-2 mb-4'>Decision Tree Classifier</h1>
@@ -735,6 +741,14 @@ const Models = () => {
                                 borderWidth: 2,
                                 fill: false,
                             },
+                            {
+                                label: 'tpr',
+                                data: [[0, 0], [1, 1]],
+                                borderColor: 'plum',
+                                borderDash: [5, 5],
+                                borderWidth: 2,
+                                fill: false,
+                            }
                         ]
                     }} options={goptions} />
                 </div>

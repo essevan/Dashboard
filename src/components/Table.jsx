@@ -256,7 +256,7 @@ const Table = () => {
         }}
         contentLabel="Row Details Modal"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" className="bi bi-x" viewBox="0 0 16 16" onClick={closeModal} className="absolute top-1 right-2 text-lg cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" className="bi bi-x absolute top-1 right-2 text-lg cursor-pointer" viewBox="0 0 16 16" onClick={closeModal}>
           <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
         </svg>
         <h2 className='mt-2'>Selected Row's Results</h2>
@@ -267,6 +267,13 @@ const Table = () => {
                 <h4 className='font-bold'>XG Boost</h4>
                 <p className='font-semibold'>{res===null? "___":res.XGBoost_model}</p>
               </div>
+
+              <div className='flex flex-col justify-center items-center text-sm'>
+                <h4 className='font-bold'>LLM</h4>
+                <p className='font-semibold'>{res===null? "___":(res.LLM)
+                }</p>
+              </div>
+              
               <div className='flex flex-col justify-center items-center text-sm'>
                 <h4 className='font-bold'>Light GBM</h4>
                 <p className='font-semibold'>{res===null? "___":res.LightGBM}</p>
@@ -278,11 +285,6 @@ const Table = () => {
               <div className='flex flex-col justify-center items-center text-sm'>
                 <h4 className='font-bold'>Decision Tree</h4>
                 <p className='font-semibold'>{res===null? "___":(res.Decision_tree)
-                }</p>
-              </div>
-              <div className='flex flex-col justify-center items-center text-sm'>
-                <h4 className='font-bold'>LLM</h4>
-                <p className='font-semibold'>{res===null? "___":(res.LLM)
                 }</p>
               </div>
             </div>

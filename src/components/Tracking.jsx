@@ -68,651 +68,8 @@ const Tracking = () => {
                 </div>
             </div>
             <div className="p-8 min-h-screen text-white ">
-                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>Logistic Regression</h1>
 
-                <div className="flex flex-wrap justify-around mb-8">
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/362f124171a04df3b33cd357e1a17128/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719292754685</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>1</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>362f124171a04df3b33cd357e1a17128</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>Logistic-Regression</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>362f124171a04df3b33cd357e1a17128</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719292726120</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>3</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/362f124171a04df3b33cd357e1a17128/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719292814685</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>2</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>362f124171a04df3b33cd357e1a17128</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>Logistic-Regression</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>362f124171a04df3b33cd357e1a17128</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719292786120</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>3</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>Decision Tree</h1>
-
-                <div className="flex flex-wrap justify-around mb-8">
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/f2cff3ff7db24f96b20213823d452a69/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719297082867</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>1</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>f2cff3ff7db24f96b20213823d452a69</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>Decision-Tree</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>f2cff3ff7db24f96b20213823d452a69</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719297060225</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>3</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/f2cff3ff7db24f96b20213823d452a69/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719297142867</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>2</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>f2cff3ff7db24f96b20213823d452a69</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>Decision-Tree</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>f2cff3ff7db24f96b20213823d452a69</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719297120225</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>3</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>Random Forest</h1>
-
-                <div className="flex flex-wrap justify-around mb-8">
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/01da2978fe0d438fb3315395e3451b5c/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719292907078</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>1</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>01da2978fe0d438fb3315395e3451b5c</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>Random-Forest</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>01da2978fe0d438fb3315395e3451b5c</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719292754687</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/01da2978fe0d438fb3315395e3451b5c/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719292967078</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>2</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>01da2978fe0d438fb3315395e3451b5c</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>Random-Forest</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>01da2978fe0d438fb3315395e3451b5c</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719292760687</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>LightGBM</h1>
-
-                <div className="flex flex-wrap justify-around mb-8">
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/998fe1bc3e56443aa70798b88beb914b/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719297418489</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>1</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>998fe1bc3e56443aa70798b88beb914b</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>LightGBM</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>998fe1bc3e56443aa70798b88beb914b</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719297396955</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>3</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
-                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>artifact_uri:</p>
-                            <p>file:///home/sagemaker-user/mlruns/0/998fe1bc3e56443aa70798b88beb914b/artifacts</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>end_time:</p>
-                            <p>1719297424489</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>entry_point_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>experiment_id:</p>
-                            <p>2</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>lifecycle_stage:</p>
-                            <p>active</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_id:</p>
-                            <p>998fe1bc3e56443aa70798b88beb914b</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_name:</p>
-                            <p>LightGBM</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>run_uuid:</p>
-                            <p>998fe1bc3e56443aa70798b88beb914b</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_name:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_type:</p>
-                            <p>4</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>source_version:</p>
-                            <p></p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>start_time:</p>
-                            <p>1719297456955</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>status:</p>
-                            <p>3</p>
-                        </div>
-
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>tags:</p>
-                            <p></p>
-                        </div>
-                        <div className='text-white flex gap-3 text-sm'>
-                            <p className=' font-medium'>user_id:</p>
-                            <p>sagemaker-user</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>XGBoost</h1>
-
+            <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>XGBoost</h1>
                 <div className="flex flex-wrap justify-around mb-8">
                     <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
                         <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
@@ -873,7 +230,641 @@ const Tracking = () => {
 
                 </div>
 
-                
+                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>LightGBM</h1>
+                <div className="flex flex-wrap justify-around mb-8">
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/998fe1bc3e56443aa70798b88beb914b/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719297418489</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>1</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>998fe1bc3e56443aa70798b88beb914b</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>LightGBM</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>998fe1bc3e56443aa70798b88beb914b</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719297396955</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>3</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/998fe1bc3e56443aa70798b88beb914b/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719297424489</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>2</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>998fe1bc3e56443aa70798b88beb914b</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>LightGBM</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>998fe1bc3e56443aa70798b88beb914b</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719297456955</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>3</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>Random Forest</h1>
+                <div className="flex flex-wrap justify-around mb-8">
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/01da2978fe0d438fb3315395e3451b5c/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719292907078</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>1</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>01da2978fe0d438fb3315395e3451b5c</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>Random-Forest</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>01da2978fe0d438fb3315395e3451b5c</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719292754687</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/01da2978fe0d438fb3315395e3451b5c/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719292967078</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>2</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>01da2978fe0d438fb3315395e3451b5c</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>Random-Forest</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>01da2978fe0d438fb3315395e3451b5c</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719292760687</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>Decision Tree</h1>
+                <div className="flex flex-wrap justify-around mb-8">
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/f2cff3ff7db24f96b20213823d452a69/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719297082867</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>1</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>f2cff3ff7db24f96b20213823d452a69</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>Decision-Tree</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>f2cff3ff7db24f96b20213823d452a69</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719297060225</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>3</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/f2cff3ff7db24f96b20213823d452a69/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719297142867</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>2</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>f2cff3ff7db24f96b20213823d452a69</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>Decision-Tree</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>f2cff3ff7db24f96b20213823d452a69</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719297120225</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>3</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <h1 className='text-white font-bold text-2xl mb-5 ml-2 mt-20'>Logistic Regression</h1>
+                <div className="flex flex-wrap justify-around mb-8">
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #1</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/362f124171a04df3b33cd357e1a17128/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719292754685</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>1</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>362f124171a04df3b33cd357e1a17128</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>Logistic-Regression</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>362f124171a04df3b33cd357e1a17128</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719292726120</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>3</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+
+                    <div className="w-full min-h-[350px] md:w-[49%] mb-4 md:mb-0 bg-gradient-to-b from-[#0A2052] rounded-lg to-[#06173E] p-4">
+                        <h1 className=' font-bold text-lg mb-4 text-center'>Experiment #2</h1>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>artifact_uri:</p>
+                            <p>file:///home/sagemaker-user/mlruns/0/362f124171a04df3b33cd357e1a17128/artifacts</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>end_time:</p>
+                            <p>1719292814656</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>entry_point_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>experiment_id:</p>
+                            <p>2</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>lifecycle_stage:</p>
+                            <p>active</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_id:</p>
+                            <p>362f124171a04df3b33cd357e1a17128</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_name:</p>
+                            <p>Logistic-Regression</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>run_uuid:</p>
+                            <p>362f124171a04df3b33cd357e1a17128</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_name:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_type:</p>
+                            <p>4</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>source_version:</p>
+                            <p></p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>start_time:</p>
+                            <p>1719292786182</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>status:</p>
+                            <p>3</p>
+                        </div>
+
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>tags:</p>
+                            <p></p>
+                        </div>
+                        <div className='text-white flex gap-3 text-sm'>
+                            <p className=' font-medium'>user_id:</p>
+                            <p>sagemaker-user</p>
+                        </div>
+
+                    </div>
+                </div>
 
 
             </div>
