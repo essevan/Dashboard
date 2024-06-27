@@ -45,7 +45,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://54.87.122.150:8000/api/piechart');
+        const response = await axios.get('http://52.73.105.111:8000/api/piechart');
         console.log('Data:', response.data.payload);
         setRec(response.data.payload)
       } catch (error) {
@@ -55,7 +55,7 @@ const Dashboard = () => {
 
     const CityState = async () => {
       try {
-        const response = await axios.get('http://54.87.122.150:8000/api/multigraphs');
+        const response = await axios.get('http://52.73.105.111:8000/api/multigraphs');
         console.log('Data 22:', response);
         setRec(response.data.payload)
       } catch (error) {
