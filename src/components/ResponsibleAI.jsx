@@ -4,7 +4,7 @@ import a1 from "../assets/a1.png"
 import a2 from "../assets/a2.png"
 import a3 from "../assets/a3.png"
 import a4 from "../assets/a4.png"
-import ai_img from "../assets/ai_img.png"
+import ai_img from "../assets/ai_img.webp"
 
 
 

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import top from "../assets/top.png";
 import btm from "../assets/btm.png";
-import robo from "../assets/robo.png";
+import robo from "../assets/robo.webp";
 import gnn from "../assets/gnn.png";
 import llm from "../assets/llm.png";
 import lgbm from "../assets/lgbm.png";
-import hand from "../assets/hand.png"
+import hand from "../assets/hand.webp"
 import lbl from "../assets/lbl.png"
 import logo from "../assets/logo.png"
 
@@ -34,7 +34,7 @@ const LandingPage = () => {
                 <div className='w-[100%] h-[90vh] flex items-center px-20'>
                     <img src={robo} alt="" className="absolute   right-32 w-[500px] h-[500px] p-0 m-0 -z-10" />
 
-                    <div className='max-w-prose px-4 py-4 text-white '>
+                    <div className='max-w-[63ch] px-4 py-4 text-white '>
                         <h1 className='font-bold text-4xl whitespace-pre-line mb-4'>Experience the Future
                             of Fraud Detection
                         </h1>

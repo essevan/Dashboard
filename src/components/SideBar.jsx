@@ -58,16 +58,10 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
   return (
     <aside className={`bg-gradient-to-b from-[#050B26] to-[#061B40]  min-h-screen text-white flex flex-col p-4 fixed top-0 bottom-0 left-0 ${isOpen ? 'w-56' : 'w-16'} transition-width duration-300`}>
       <button onClick={toggleSidebar} className="p-2 text-white ml-auto">
-        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="white" className="bi bi-list" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
         </svg>
       </button>
-      {/* {isOpen ?
-        <>
-        <Link to='/'>
-          <img src={logo} alt="" className="w-7 object-contain absolute top-5 left-5" />
-          </Link>
-        </> : ""} */}
       {isOpen ?
         <>
         <div className='flex'>
@@ -81,7 +75,7 @@ const SideBar = ({ isOpen, toggleSidebar }) => {
           to={item.path}
           key={index}
           className={({ isActive }) =>
-            `flex flex-row text-left py-2  mb-1 ${isOpen ? 'hover:bg-[#1A1F37] px-4' : "px-1"} rounded-lg items-center ${isActive && isOpen ? 'bg-[#1A1F37]' : 'bg-none'
+            `flex flex-row text-left py-2 mb-1 ${isOpen ? 'hover:bg-[#1A1F37] px-4' : "px-1"} rounded-lg items-center ${isActive && isOpen ? 'bg-[#1A1F37]' : 'bg-none'
             }`
           }
         >
